@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BeatDetector : MonoBehaviour {
-	private Transform currentNote;
+	public Transform currentNote;
 
 	void Awake() {
 		currentNote = null;

@@ -3,36 +3,9 @@ using System.Collections;
 using BladeCast;
 
 public class GameController : MonoBehaviour {
-
 	public int bpm = 160;
 	public float damp = 10f;
-<<<<<<< HEAD
-	public int player1Score = 0;
-	public int player2Score = 0;
-
-	float connect = 0;
-
-	//Creates all controller listeners
-	void Start () {
-		BCMessenger.Instance.RegisterListener("click",0,this.gameObject,"playerClick");
-	}
-
-	void Update () {
-		//make sure unity stays connected
-		connect += Time.deltaTime;
-		if (connect >= 5) {
-			BCMessenger.Instance.SendToListeners("check_connection", -1);
-			connect = 0;
-		}
-	}
-
-	//handles player click
-	void playerClick(ControllerMessage msg) {
-		//TODO CALL PROPER PLAYER BASED ON INDEX
-		int player = 0;
-		int.TryParse (msg.Payload.GetField ("index").ToString (), out player);
-		string button = msg.Payload.GetField ("button").ToString ();
-=======
+	float connect = 0f;
 	Player player1;
 	Player player2;
 	public Transform b1; //Beat Detector1
@@ -43,6 +16,7 @@ public class GameController : MonoBehaviour {
 	void Awake() {
 		player1 = new Player (b1.GetComponent<BeatDetector>(), null);
 		player2 = new Player (b2.GetComponent<BeatDetector>(), null);
+		BCMessenger.Instance.RegisterListener("click",0,this.gameObject,"playerClick");
 	}
 
 	void takeInput(int playerIndex, string tag) {
@@ -53,13 +27,26 @@ public class GameController : MonoBehaviour {
 			player2.hit (tag);
 	}
 
+	//handles player click
+	void playerClick(ControllerMessage msg) {
+		//TODO CALL PROPER PLAYER BASED ON INDEX
+		int player = 0;
+		int.TryParse (msg.Payload.GetField ("index").ToString (), out player);
+		string button = msg.Payload.GetField ("button").ToString ();
+	}
+
 	void Update() {
+		connect += Time.deltaTime;
+		if (connect >= 5) {
+			BCMessenger.Instance.SendToListeners("check_connection", -1);
+			connect = 0;
+		}
+
 		if(Input.GetKeyDown(KeyCode.A)) takeInput(1, "ONote");
 		if(Input.GetKeyDown(KeyCode.S)) takeInput(1, "PNote");
 
 		//Score
 		scorep1.text = "Player 1 Score: " + player1.score.ToString ();
 		scorep2.text = "Player 2 Score: " + player2.score.ToString ();
->>>>>>> origin/master
 	}
 }
