@@ -33,13 +33,13 @@
 		width: 50%;
 		height: 100%;
 	}
-	#leftB{
+	#ONote{
 		left: 0%;
-		background: red;
+		background: orange;
 	}
-	#rightB{
+	#PNote{
 		left: 50%;
-		background: blue;
+		background: purple;
 	}
 
 

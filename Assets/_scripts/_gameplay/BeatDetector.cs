@@ -16,6 +16,7 @@ public class BeatDetector : MonoBehaviour {
 	}
 
 	public void hitBeat(string tag) {
+		Debug.Log ("tag = " + tag);
 		if (currentNote != null && currentNote.tag == tag) {
 			Debug.Log ("You did it!");
 			Destroy (currentNote.gameObject);
