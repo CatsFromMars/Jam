@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour {
 			player2.hit (tag);
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		if(Input.GetKeyDown(KeyCode.A)) takeInput(1, "ONote");
 		if(Input.GetKeyDown(KeyCode.S)) takeInput(1, "PNote");
 

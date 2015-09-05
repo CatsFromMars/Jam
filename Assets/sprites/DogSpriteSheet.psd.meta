@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 8f0e57085425f4ff883a52fb7cac8900
+timeCreated: 1441442263
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DogSpriteSheet_0
+    21300002: DogSpriteSheet_1
+    21300004: DogSpriteSheet_2
+    21300006: DogSpriteSheet_3
+    21300008: DogSpriteSheet_4
+    21300010: DogSpriteSheet_5
+    21300012: DogSpriteSheet_6
+    21300014: DogSpriteSheet_7
+    21300016: DogSpriteSheet_8
+    21300018: DogSpriteSheet_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DogSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 1768
+        width: 159
+        height: 232
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 1768
+        width: 141
+        height: 221
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 1455
+        width: 149
+        height: 210
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 1456
+        width: 117
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 1459
+        width: 135
+        height: 210
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1452
+        width: 153
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 1134
+        width: 148
+        height: 210
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 1132
+        width: 145
+        height: 212
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 1156
+        width: 152
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1829
+        y: 1164
+        width: 162
+        height: 216
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
