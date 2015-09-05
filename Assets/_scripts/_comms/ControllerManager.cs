@@ -32,6 +32,10 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		//wait till connected to sync controller with level
 		if (!connected && GameObject.Find ("BCLibProvider").GetComponent<BCLibProvider>().BladeCast_Game_IsConnected()) {
 			BCMessenger.Instance.SendToListeners ("set_scene", "scene", curLevel, -1);
+			if (curLevel == "loadingScene" || curLevel == "resultsScene") {
+				//controller one will get the menu when loading
+				BCMessenger.Instance.SendToListeners ("set_scene", "scene", "loadMenu", 1);
+			}
 			connected = true;
 		}
 	}
@@ -56,12 +60,12 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	void menuOptions(ControllerMessage msg) {
 		if (Application.loadedLevelName == "loadingScene" || Application.loadedLevelName == "resultsScreen") {
 			switch (msg.Payload.GetField("button").ToString().Replace("\"", "")) {
-			case "singleplayer":
-				numPlayers = 1;
-				break;
-			case "multiplayer":
-				numPlayers = 2;
-				break;
+				case "singleplayer":
+					numPlayers = 1;
+					break;
+				case "multiplayer":
+					numPlayers = 2;
+					break;
 			}
 			Application.LoadLevel("mainGame");
 		}

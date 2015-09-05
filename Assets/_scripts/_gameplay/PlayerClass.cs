@@ -29,14 +29,37 @@ public class Player{
 			detector.currentNote.GetComponent<Note> ().destroySelf ();
 			detector.currentNote = null;
 			combo++;
-			score++;
+			//calculate combo bonus
+			if (combo >= 20) {
+				score += 10;
+			}
+			else if (combo >= 10) {
+				score += 5;
+			}
+			else if (combo >= 5) {
+				score += 2;
+			}
+			else {
+				score++;
+			}
 		} else {
 			missed++;
 			if (combo > bestCombo) {
 				bestCombo = combo;
 			}
 			combo = 0;
+			if (score > 0) {
+				score--;
+			}
 			Debug.Log ("BOOOOO");
 		}
+	}
+	//call when player misses a note
+	public void miss() {
+		if (combo > bestCombo) {
+			bestCombo = combo;
+		}
+		missed++;
+		combo = 0;
 	}
 }
