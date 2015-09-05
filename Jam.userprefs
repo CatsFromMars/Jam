@@ -1,10 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_gameplay\BeatDetector.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_gameplay\GameController.cs">
     <Files>
-      <File FileName="Assets\_scripts\_gameplay\Note.cs" Line="13" Column="3" />
-      <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="7" Column="24" />
-      <File FileName="Assets\_scripts\_gameplay\BeatDetector.cs" Line="11" Column="39" />
+      <File FileName="Assets\_scripts\_gameplay\Note.cs" Line="8" Column="3" />
+      <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="6" Column="23" />
+      <File FileName="Assets\_scripts\_gameplay\BeatDetector.cs" Line="13" Column="3" />
+      <File FileName="Assets\_scripts\_gameplay\NoteSpawner.cs" Line="16" Column="3" />
+      <File FileName="Assets\_scripts\_gameplay\PlayerClass.cs" Line="19" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
