@@ -3,6 +3,7 @@ using System.Collections;
 using BladeCast;
 
 public class GameController : MonoBehaviour {
+	ControllerManager master;
 	public int bpm = 160;
 	public float damp = 10f;
 	Player[] players; //holds all the players
@@ -14,11 +15,12 @@ public class GameController : MonoBehaviour {
 	public TextMesh scorep2;
 
 	void Awake() {
-		GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ().loadLevel (Application.loadedLevelName);
-		int numPlayers = GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ().getNumPlayers ();
+		master = GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ();
+		master.loadLevel (Application.loadedLevelName);
+		int numPlayers = master.getNumPlayers ();
 		players = new Player[2];
-		players[0] = new Player (b1.GetComponent<BeatDetector>(), null);
-		players[1] = new Player (b2.GetComponent<BeatDetector>(), null);
+		players[0] = new Player (b1.GetComponent<BeatDetector>(), null, 1);
+		players[1] = new Player (b2.GetComponent<BeatDetector>(), null, 2);
 
 		if (numPlayers == 1) {
 			GameObject.Find ("Player 2").SetActive(false);
@@ -44,5 +46,21 @@ public class GameController : MonoBehaviour {
 		//current combo
 		combo1.text = "Combo: " + players[0].combo.ToString ();
 		combo2.text = "Combo: " + players[1].combo.ToString ();
+	}
+
+	public void endGame() {
+		master.score1 = players [0].score;
+		master.maxCombo1 = players [0].bestCombo;
+		master.missedNotes1 = players [0].missed;
+		if (players.Length > 1) {
+			master.score2 = players [1].score;
+			master.maxCombo2 = players [1].bestCombo;
+			master.missedNotes2 = players [1].missed;
+		}
+		StartCoroutine (gotoResults());
+	}
+	IEnumerator gotoResults() {
+		yield return new WaitForSeconds (1.0f);
+		Application.LoadLevel ("resultsScreen");
 	}
 }

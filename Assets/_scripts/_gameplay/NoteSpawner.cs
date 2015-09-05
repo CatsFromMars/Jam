@@ -23,5 +23,8 @@ public class NoteSpawner : MonoBehaviour {
 			if(randNote == 1) Instantiate (PNote, transform.position, Quaternion.identity);
 			else Instantiate (ONote, transform.position, Quaternion.identity);
 		}
+		if (!mainMusic.isPlaying) {
+			controller.endGame();
+		}
 	}
 }

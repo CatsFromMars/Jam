@@ -28,6 +28,9 @@ $(document).ready(function () {
 			case "set_scene": //unity wants controller to change scene
 				loadScene(payload);
 				break;
+			case "vibrate":
+				navigator.vibrate(payload.time);
+				break;
 		}
 	});
 	

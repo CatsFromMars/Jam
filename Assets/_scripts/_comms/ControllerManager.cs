@@ -9,6 +9,14 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	int numPlayers = 1;
 	string curLevel;
 
+	//for final results
+	public int score1;
+	public int score2;
+	public int maxCombo1;
+	public int maxCombo2;
+	public int missedNotes1;
+	public int missedNotes2;
+
 	// Use this for initialization
 	void Start () {
 		loadLevel (Application.loadedLevelName);
@@ -33,6 +41,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		//find out which controller msged
 		int.TryParse(msg.Payload.GetField("index").ToString(), out controller);
 		switch (Application.loadedLevelName) {
+			case "resultsScreen":
 			case "loadingScene":
 				if (controller == 1) {
 					//player 1 loads the menu while the other players wait
@@ -45,7 +54,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		}
 	}
 	void menuOptions(ControllerMessage msg) {
-		if (Application.loadedLevelName == "loadingScene") {
+		if (Application.loadedLevelName == "loadingScene" || Application.loadedLevelName == "resultsScreen") {
 			switch (msg.Payload.GetField("button").ToString().Replace("\"", "")) {
 			case "singleplayer":
 				numPlayers = 1;
@@ -79,6 +88,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		curLevel = level;
 		//need this to re-add appropiate unity listeners
 		switch (level) {
+			case "resultsScreen":
 			case "loadingScene":
 				BCMessenger.Instance.RegisterListener("menu_click",0,this.gameObject,"menuOptions");
 				break;
@@ -87,5 +97,9 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 				break;
 		}
 		BCMessenger.Instance.RegisterListener("request_sync",0,this.gameObject,"syncController");
+	}
+
+	public void vibrate(int milliseconds, int player) {
+		BCMessenger.Instance.SendToListeners ("vibrate", "time", milliseconds, player);
 	}
 }
