@@ -15,19 +15,18 @@ public class BeatDetector : MonoBehaviour {
 		if(other.gameObject.tag == "ONote" || other.gameObject.tag == "PNote") currentNote = null;
 	}
 
-	public void hitBeat(string tag) {
-		Debug.Log ("tag = " + tag);
-		if (currentNote != null && currentNote.tag == tag) {
-			Debug.Log ("You did it!");
-			Destroy (currentNote.gameObject);
-			currentNote = null;
-		} else
-			Debug.Log ("BOOOOO");
-	}
-
-	//Debug Controls
-	void FixedUpdate () {
-		if (Input.GetKeyDown (KeyCode.A))
-			hitBeat ("ONote");
-	}
+//	public void hitBeat(string tag) {
+//		Debug.Log ("tag = " + tag);
+//		if (currentNote != null && currentNote.tag == tag) {
+//			Destroy (currentNote.gameObject);
+//			currentNote = null;
+//		} else {
+//		}
+//	}
+//
+//	//Debug Controls
+//	void FixedUpdate () {
+//		if (Input.GetKeyDown (KeyCode.A))
+//			hitBeat ("ONote");
+//	}
 }

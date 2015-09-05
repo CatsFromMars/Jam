@@ -50,6 +50,7 @@
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCLibProvider.cs" />
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCMessenger.cs" />
      <Compile Include="Assets\_scripts\_comms\BladeCast\BCOutput.cs" />
+     <Compile Include="Assets\_scripts\_comms\ControllerManager.cs" />
      <Compile Include="Assets\_scripts\_comms\JSONObject\JSONObject.cs" />
      <Compile Include="Assets\_scripts\_comms\JSONObject\JSONTemplates.cs" />
      <Compile Include="Assets\_scripts\_comms\JSONObject\VectorTemplates.cs" />

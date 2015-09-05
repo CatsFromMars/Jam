@@ -13,6 +13,7 @@ $(document).ready(function () {
 	// INIT..
 	conn = new Connection();
 	conn.sendMessage({"type": "connect"});
+	startUp();
 	
 	// Process incoming game messages
 	$(document).on("game_message", function (e, message) {
@@ -24,9 +25,44 @@ $(document).ready(function () {
 				var msg = {"type": "ackConnection"};
 				conn.sendMessage(msg, 0);
 				break;
+			case "set_scene": //unity wants controller to change scene
+				loadScene(payload);
+				break;
 		}
 	});
 	
+	function startUp() {
+		//ask unity what scene we are in
+		var msg = {
+			"type": "request_sync"};
+		conn.sendMessage(msg, 0);
+	}
+	
+	function loadScene(payload) {
+		switch(payload.scene) {
+			case "loadMenu":
+				$(".scene").hide();
+				$("#menu").show();
+				break;
+			case "mainGame":
+				$(".scene").hide();
+				$("#music").show();
+				break;
+			default:
+				$(".scene").hide();
+				break;
+		}
+	}
+	//*********************MENU SCENE**************************
+	$(".options").on("touchend", function(e) {
+		var msg = {
+			"type": "menu_click",
+			"button": $(this).attr("id")
+        };
+        conn.sendMessage(msg, 0);
+	});
+	
+	//*********************MUSIC SCENE*************************
 	$(".button").on("touchend", function(e) {
 		var msg = {
 			"type": "click",
@@ -34,6 +70,5 @@ $(document).ready(function () {
         };
         conn.sendMessage(msg, 0);
 	});
-	
 });
 
