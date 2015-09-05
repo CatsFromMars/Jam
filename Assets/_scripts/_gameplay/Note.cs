@@ -11,4 +11,13 @@ public class Note : MonoBehaviour {
 	void FixedUpdate () {
 		transform.Translate(Vector3.left*(controller.bpm/controller.damp)*Time.deltaTime);
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.tag == "Destroy")
+			destroySelf ();
+	}
+
+	public void destroySelf() {
+		Destroy (this.gameObject);
+	}
 }
