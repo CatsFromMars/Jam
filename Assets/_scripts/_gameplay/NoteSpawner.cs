@@ -7,8 +7,9 @@ public class NoteSpawner : MonoBehaviour {
 	public float startingPoint = 0f;
 	GameController controller;
 	AudioSource mainMusic;
-	private float rate = 0.4f;
+	private float rate = 0.44f;
 	public int musicTime = 243;
+	//public Transform spawner
 
 	void Awake() {
 		controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -24,12 +25,13 @@ public class NoteSpawner : MonoBehaviour {
 	}
 
 	IEnumerator spawnNotes() {
+		yield return new WaitForSeconds(rate/2);
 		while (mainMusic.time < musicTime) {
-			float wait = rate*Random.Range(1,4);
+			float wait = rate;//*Random.Range(1,4);
 			yield return new WaitForSeconds(wait);
-			int randNote = Random.Range(1,3);
+			int randNote = Random.Range(1,5);
 			if(randNote == 1) Instantiate (PNote, transform.position, Quaternion.identity);
-			else Instantiate (ONote, transform.position, Quaternion.identity);
+			else if (randNote == 2) Instantiate (ONote, transform.position, Quaternion.identity);
 		}
 	}
 }
