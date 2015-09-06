@@ -4,7 +4,7 @@ using BladeCast;
 
 public class GameController : MonoBehaviour {
 	ControllerManager master;
-	public int bpm = 160;
+	public float bpm = 140f;
 	public float damp = 10f;
 	Player[] players; //holds all the players
 	public Transform b1; //Beat Detector1
