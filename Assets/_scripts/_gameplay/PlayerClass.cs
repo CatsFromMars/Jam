@@ -85,12 +85,13 @@ public class Player{
 			if (playerNum == 1) {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= damage;
 				//fightManager.catAttackDog();
+				fightManager.animalAttack(0);
 				GameObject.Find ("GameController").GetComponent<GameController>().StartCoroutine("fightReset");
 			}
 			else {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= damage;
 				//fightManager.dogAttackCat();
-				//fightManager.normal();
+				fightManager.animalAttack(1);
 			}
 			combo = 0;
 		}

@@ -1,15 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_gameplay\PlayerClass.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_gameplay\ResultsManager.cs">
     <Files>
-      <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="64" Column="24" />
-      <File FileName="Assets\_scripts\_gameplay\Note.cs" Line="1" Column="1" />
-      <File FileName="Assets\_scripts\_gameplay\BeatDetector.cs" Line="50" Column="1" />
-      <File FileName="Assets\_scripts\_gameplay\NoteSpawner.cs" Line="43" Column="1" />
-      <File FileName="Assets\_scripts\_gameplay\PlayerClass.cs" Line="60" Column="1" />
-      <File FileName="Assets\_scripts\_comms\ControllerManager.cs" Line="123" Column="1" />
-      <File FileName="Assets\_scripts\_gameplay\Animals.cs" Line="37" Column="5" />
-      <File FileName="Assets\_scripts\_gameplay\ResultsManager.cs" Line="41" Column="1" />
+      <File FileName="Assets\_scripts\_gameplay\ResultsManager.cs" Line="37" Column="48" />
+      <File FileName="Assets\_scripts\_gameplay\Animals.cs" Line="20" Column="3" />
+      <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="96" Column="1" />
+      <File FileName="Assets\_scripts\_gameplay\PlayerClass.cs" Line="107" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
