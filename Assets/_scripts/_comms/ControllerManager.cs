@@ -16,6 +16,8 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	public int maxCombo2;
 	public int missedNotes1;
 	public int missedNotes2;
+	public int victor;
+	public int victoryType;
 
 	// Use this for initialization
 	void Start () {

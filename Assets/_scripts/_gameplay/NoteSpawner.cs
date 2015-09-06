@@ -20,7 +20,7 @@ public class NoteSpawner : MonoBehaviour {
 	void Update() {
 		//Debug.Log (mainMusic.time);
 		if (!mainMusic.isPlaying) {
-			controller.endGame();
+			controller.endGame(-1);
 		}
 	}
 
