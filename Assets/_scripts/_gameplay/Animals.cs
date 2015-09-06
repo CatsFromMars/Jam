@@ -9,35 +9,35 @@ public class Animals : MonoBehaviour {
 	//public ParticleSystem catBeam;
 
 	void Awake() {
-		StartCoroutine (testfight ());
+		//StartCoroutine (testfight ());
 	}
 	
-	void catAttackDog() {
+	public void catAttackDog() {
 		catAnimator.SetInteger (Animator.StringToHash ("CatState"), 1);
 		dogAnimator.SetInteger (Animator.StringToHash ("DogState"), 3);
 	}
 
-	void dogAttackCat() {
+	public void dogAttackCat() {
 		dogAnimator.SetInteger (Animator.StringToHash ("DogState"), 0);
 		catAnimator.SetInteger (Animator.StringToHash ("CatState"), 2);
 	}
 
-	void normal() {
+	public void normal() {
 		catAnimator.SetInteger (Animator.StringToHash ("CatState"), 3);
 		dogAnimator.SetInteger (Animator.StringToHash ("DogState"), 1);
 	}
 
-	IEnumerator testfight() {
-		while (true) {
-			yield return new WaitForSeconds (2f);
-			catAttackDog ();
-			yield return new WaitForSeconds (0.5f);
-			normal ();
-			yield return new WaitForSeconds (2f);
-			dogAttackCat ();
-			yield return new WaitForSeconds (0.5f);
-			normal ();
-
-		}
-	}
+//	IEnumerator testfight() {
+//		while (true) {
+//			yield return new WaitForSeconds (2f);
+//			catAttackDog ();
+//			yield return new WaitForSeconds (0.5f);
+//			normal ();
+//			yield return new WaitForSeconds (2f);
+//			dogAttackCat ();
+//			yield return new WaitForSeconds (0.5f);
+//			normal ();
+//
+//		}
+//	}
 }

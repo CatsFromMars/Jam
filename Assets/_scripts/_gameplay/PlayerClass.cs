@@ -11,6 +11,7 @@ public class Player{
 	public int bestCombo;
 	public Transform avatar;
 	public int health;
+	public Animals fightManager;
 
 	public Player(BeatDetector d, Transform a, int num)
 	{
@@ -22,6 +23,7 @@ public class Player{
 		health = 100;
 		avatar = a;
 		playerNum = num;
+		fightManager = GameObject.Find ("Fight").GetComponent<Animals> ();
 	}
 	
 	public void hit(string tag) {
@@ -45,7 +47,6 @@ public class Player{
 				score++;
 			}
 		} else {
-			missed++;
 			if (combo > bestCombo) {
 				bestCombo = combo;
 			}
@@ -76,9 +77,13 @@ public class Player{
 			//NO MERCY
 			if (playerNum == 1) {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= combo;
+				fightManager.catAttackDog();
+				GameObject.Find ("GameController").GetComponent<GameController>().StartCoroutine("fightReset");
 			}
 			else {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= combo;
+				fightManager.dogAttackCat();
+				fightManager.normal();
 			}
 			combo = 0;
 		}

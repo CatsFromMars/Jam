@@ -58,21 +58,38 @@ public class GameController : MonoBehaviour {
 		health2.text = "Health: " + players[1].health.ToString ();
 		hbar1.value = players [0].health;
 		hbar2.value = players [1].health;
+
+		if (players [0].health <= 0) {
+			endGame (2);
+		} else if (players [1].health <= 0) {
+			endGame (1);
+		}
 	}
 
-	public void endGame() {
+	public void endGame(int victor) {
 		master.score1 = players [0].score;
 		master.maxCombo1 = players [0].bestCombo;
 		master.missedNotes1 = players [0].missed;
-		if (players.Length > 1) {
-			master.score2 = players [1].score;
-			master.maxCombo2 = players [1].bestCombo;
-			master.missedNotes2 = players [1].missed;
+		master.score2 = players [1].score;
+		master.maxCombo2 = players [1].bestCombo;
+		master.missedNotes2 = players [1].missed;
+		if (victor == -1) {
+			master.victor = (players [0].score > 
+				players [1].score) ? 1 : 2;
+			master.victoryType = 0;
+		} else {
+			master.victor = victor;
+			master.victoryType = 1;
 		}
+
 		StartCoroutine (gotoResults());
 	}
 	IEnumerator gotoResults() {
 		yield return new WaitForSeconds (1.0f);
 		Application.LoadLevel ("resultsScreen");
+	}
+	IEnumerator fightReset() {
+		yield return new WaitForSeconds (0.5f);
+		GameObject.Find ("Fight").GetComponent<Animals> ().normal();
 	}
 }
