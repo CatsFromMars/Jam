@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_comms\ControllerManager.cs">
     <Files>
       <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="61" Column="3" />
@@ -8,6 +9,11 @@
       <File FileName="Assets\_scripts\_gameplay\NoteSpawner.cs" Line="38" Column="1" />
       <File FileName="Assets\_scripts\_gameplay\PlayerClass.cs" Line="58" Column="3" />
       <File FileName="Assets\_scripts\_comms\ControllerManager.cs" Line="93" Column="4" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\_gameplay\GameController.cs">
+    <Files>
+      <File FileName="Assets\_scripts\_gameplay\GameController.cs" Line="79" Column="1" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
