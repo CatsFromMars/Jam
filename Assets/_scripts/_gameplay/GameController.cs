@@ -90,6 +90,6 @@ public class GameController : MonoBehaviour {
 	}
 	IEnumerator fightReset() {
 		yield return new WaitForSeconds (0.5f);
-		GameObject.Find ("Fight").GetComponent<Animals> ().normal();
+		//GameObject.Find ("Fight").GetComponent<Animals> ().normal();
 	}
 }

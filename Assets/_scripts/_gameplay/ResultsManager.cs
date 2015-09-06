@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class ResultsManager : MonoBehaviour {
-
+	
 	ControllerManager master;
-
+	
 	public TextMesh score1;
 	public TextMesh score2;
 	public TextMesh combo1;
@@ -12,7 +12,11 @@ public class ResultsManager : MonoBehaviour {
 	public TextMesh missed1;
 	public TextMesh missed2;
 	public TextMesh victoryText;
-
+	public Sprite dogWon;
+	public Sprite catWon;
+	public SpriteRenderer cat;
+	public SpriteRenderer dog;
+	
 	// Use this for initialization
 	void Start () {
 		master = GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ();
@@ -23,18 +27,24 @@ public class ResultsManager : MonoBehaviour {
 		score2.text = "Player 2 Score: " + master.score2.ToString();
 		combo2.text = "Largest Combo: " + master.maxCombo2.ToString();
 		missed2.text = " Missed Notes: " + master.missedNotes2.ToString();
-
+		
 		string victoryType;
 		if (master.victoryType == 0) {
 			victoryType = " musical mastery!";
 		} else {
 			victoryType = " blood!";
 		}
-		victoryText.text = "Player " + master.victor + " wins by right of " + victoryType;
+		victoryText.text = "Player " + (master.victor) + " wins by right of " + victoryType;
+	
+		if (master.victor == 0)
+			cat.sprite = catWon;
+		else if (master.victor == 1)
+			dog.sprite = dogWon;
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 }

@@ -84,13 +84,13 @@ public class Player{
 			//NO MERCY
 			if (playerNum == 1) {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= damage;
-				fightManager.catAttackDog();
+				//fightManager.catAttackDog();
 				GameObject.Find ("GameController").GetComponent<GameController>().StartCoroutine("fightReset");
 			}
 			else {
 				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= damage;
-				fightManager.dogAttackCat();
-				fightManager.normal();
+				//fightManager.dogAttackCat();
+				//fightManager.normal();
 			}
 			combo = 0;
 		}
