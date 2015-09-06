@@ -15,6 +15,7 @@ $(document).ready(function () {
 	conn.sendMessage({"type": "connect"});
 	startUp();
 	
+	
 	// Process incoming game messages
 	$(document).on("game_message", function (e, message) {
 		console.log("Received Message: " + JSON.stringify(message));
@@ -56,6 +57,15 @@ $(document).ready(function () {
 				break;
 		}
 	}
+	
+	window.addEventListener('devicemotion', function(e) {
+		if (e.acceleration.z > 20) {
+			var msg = {
+			"type": "shake", "amount": e.acceleration.z};
+			conn.sendMessage(msg, 0);
+		}
+	});
+	
 	//*********************MENU SCENE**************************
 	$(".options").on("touchend", function(e) {
 		var msg = {
@@ -66,7 +76,7 @@ $(document).ready(function () {
 	});
 	
 	//*********************MUSIC SCENE*************************
-	$(".button").on("touchend", function(e) {
+	$(".button").on("touchstart", function(e) {
 		var msg = {
 			"type": "click",
 			"button": $(this).attr("id")

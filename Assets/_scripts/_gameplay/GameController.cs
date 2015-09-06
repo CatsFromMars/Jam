@@ -1,19 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using BladeCast;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	ControllerManager master;
-	public float bpm = 140f;
+	public Player[] players; //holds all the players
 	public int songLength = 160;
 	public float damp = 40f;
-	Player[] players; //holds all the players
+	public float bpm = 140f;
 	public Transform b1; //Beat Detector1
 	public Transform b2; //Beat Detector2
 	public TextMesh combo1;
 	public TextMesh combo2;
 	public TextMesh scorep1;
 	public TextMesh scorep2;
+	public TextMesh health1;
+	public TextMesh health2;
+	public Slider hbar1;
+	public Slider hbar2;
 
 	void Awake() {
 		master = GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ();
@@ -47,6 +52,12 @@ public class GameController : MonoBehaviour {
 		//current combo
 		combo1.text = "Combo: " + players[0].combo.ToString ();
 		combo2.text = "Combo: " + players[1].combo.ToString ();
+
+		//current health
+		health1.text = "Health: " + players[0].health.ToString ();
+		health2.text = "Health: " + players[1].health.ToString ();
+		hbar1.value = players [0].health;
+		hbar2.value = players [1].health;
 	}
 
 	public void endGame() {

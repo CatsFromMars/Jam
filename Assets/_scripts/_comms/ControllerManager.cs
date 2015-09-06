@@ -6,7 +6,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 
 	bool connected = false;
 	float connect = 0f;
-	int numPlayers = 1;
+	int numPlayers = 2;
 	string curLevel;
 
 	//for final results
@@ -61,7 +61,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		if (Application.loadedLevelName == "loadingScene" || Application.loadedLevelName == "resultsScreen") {
 			switch (msg.Payload.GetField("button").ToString().Replace("\"", "")) {
 				case "singleplayer":
-					numPlayers = 1;
+					numPlayers = 2;
 					break;
 				case "multiplayer":
 					numPlayers = 2;
@@ -83,6 +83,16 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		}
 	}
 
+	//handles shake
+	void shakeIt(ControllerMessage msg) {
+		Debug.Log ("SHAKE IT");
+		if (Application.loadedLevelName == "mainGame") {
+			int player = 0;
+			int.TryParse (msg.Payload.GetField ("index").ToString (), out player);
+			GameObject.Find ("GameController").GetComponent<GameController>().players[--player].attack();
+		}
+	}
+
 	public int getNumPlayers() {
 		return numPlayers;
 	}
@@ -98,6 +108,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 				break;
 			case "mainGame":
 				BCMessenger.Instance.RegisterListener("click",0,this.gameObject,"playerClick");
+				BCMessenger.Instance.RegisterListener("shake",0,this.gameObject,"shakeIt");
 				break;
 		}
 		BCMessenger.Instance.RegisterListener("request_sync",0,this.gameObject,"syncController");

@@ -10,6 +10,7 @@ public class Player{
 	public int combo;
 	public int bestCombo;
 	public Transform avatar;
+	public int health;
 
 	public Player(BeatDetector d, Transform a, int num)
 	{
@@ -18,6 +19,7 @@ public class Player{
 		combo = 0;
 		bestCombo = 0;
 		missed = 0;
+		health = 100;
 		avatar = a;
 		playerNum = num;
 	}
@@ -54,12 +56,38 @@ public class Player{
 			Debug.Log ("BOOOOO");
 		}
 	}
+
 	//call when player misses a note
 	public void miss() {
 		if (combo > bestCombo) {
 			bestCombo = combo;
 		}
 		missed++;
+		combo = 0;
+	}
+
+	//call to attack
+	public void attack() {
+		if (combo >= 5) {
+			if (combo > bestCombo) {
+				bestCombo = combo;
+			}
+			//NO MERCY
+			if (playerNum == 1) {
+				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= combo;
+			}
+			else {
+				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= combo;
+			}
+			combo = 0;
+		}
+	}
+
+	public void heal() {
+		if (combo > bestCombo) {
+			bestCombo = combo;
+		}
+		health += combo;
 		combo = 0;
 	}
 }

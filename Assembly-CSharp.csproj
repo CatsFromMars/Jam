@@ -146,6 +146,7 @@
      <Compile Include="Assets\_scripts\_gameplay\ResultsManager.cs" />
      <Compile Include="Assets\_scripts\_gameplay\Score.cs" />
      <Compile Include="Assets\_scripts\_gameplay\TimedDestroy.cs" />
+     <Compile Include="Assets\_scripts\_other\CatAni.cs" />
      <Compile Include="Assets\_scripts\_other\ChildCollider.cs" />
      <Compile Include="Assets\_scripts\_other\SimpleStateMachine.cs" />
      <None Include="Assets\_scripts\_comms\JSONObject\readme.txt" />
