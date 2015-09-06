@@ -66,7 +66,7 @@ $(document).ready(function () {
 	});
 	
 	//*********************MUSIC SCENE*************************
-	$(".button").on("touchend", function(e) {
+	$(".button").on("touchstart", function(e) {
 		var msg = {
 			"type": "click",
 			"button": $(this).attr("id")
