@@ -63,6 +63,7 @@ public class Player{
 			bestCombo = combo;
 		}
 		missed++;
+		detector.miss ();
 		combo = 0;
 	}
 

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BeatDetector : MonoBehaviour {
 	public Transform currentNote;
+	public Transform missed;
 
 	void Awake() {
 		currentNote = null;
@@ -20,6 +21,15 @@ public class BeatDetector : MonoBehaviour {
 		else
 			playerNum = 1;
 		GameObject.Find ("GameController").GetComponent<GameController> ().players[playerNum].miss ();
+	}
+
+	public void spawnText(Transform textEffect) {
+		Vector2 pos = new Vector2(transform.position.x+0.1f, transform.position.y + 1f);
+		Instantiate (textEffect, pos, Quaternion.identity);
+	}
+
+	public void miss() {
+		spawnText (missed);
 	}
 
 //	public void hitBeat(string tag) {

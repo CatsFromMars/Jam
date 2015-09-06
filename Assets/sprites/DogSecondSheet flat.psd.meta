@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: d7c4c9f15f14d4a7c8da9ea7a7c5ee23
+timeCreated: 1441521515
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DogSecondSheet flat_0
+    21300002: DogSecondSheet flat_1
+    21300004: DogSecondSheet flat_2
+    21300006: DogSecondSheet flat_3
+    21300008: DogSecondSheet flat_4
+    21300010: DogSecondSheet flat_5
+    21300012: DogSecondSheet flat_6
+    21300014: DogSecondSheet flat_7
+    21300016: DogSecondSheet flat_8
+    21300018: DogSecondSheet flat_9
+    21300020: DogSecondSheet flat_10
+    21300022: DogSecondSheet flat_11
+    21300024: DogSecondSheet flat_12
+    21300026: DogSecondSheet flat_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: DogSecondSheet flat_0
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 751
+        width: 98
+        height: 214
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 751
+        width: 96
+        height: 214
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_2
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 750
+        width: 118
+        height: 214
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_3
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 748
+        width: 112
+        height: 217
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_4
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 744
+        width: 134
+        height: 222
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_5
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 444
+        width: 160
+        height: 192
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 121
+        width: 74
+        height: 236
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_7
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 116
+        width: 80
+        height: 241
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_8
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 116
+        width: 78
+        height: 244
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_9
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 116
+        width: 68
+        height: 248
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_10
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 119
+        width: 78
+        height: 243
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_11
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 421
+        width: 65
+        height: 243
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_12
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 427
+        width: 73
+        height: 236
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DogSecondSheet flat_13
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 118
+        width: 79
+        height: 239
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
