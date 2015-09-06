@@ -7,14 +7,14 @@ public class NoteSpawner : MonoBehaviour {
 	public float startingPoint = 0f;
 	GameController controller;
 	AudioSource mainMusic;
-	private float rate = 0.44f;
-	public int musicTime = 243;
+	private float rate;
 	//public Transform spawner
 
 	void Awake() {
 		controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 		mainMusic = GameObject.FindGameObjectWithTag("MainMusic").GetComponent<AudioSource>();
 		StartCoroutine (spawnNotes());
+		rate = (controller.bpm/controller.songLength)/1.5f;
 	}
 
 	void Update() {
@@ -26,7 +26,7 @@ public class NoteSpawner : MonoBehaviour {
 
 	IEnumerator spawnNotes() {
 		yield return new WaitForSeconds(rate/2);
-		while (mainMusic.time < musicTime) {
+		while (mainMusic.time < controller.songLength-3) {
 			float wait = rate;//*Random.Range(1,4);
 			yield return new WaitForSeconds(wait);
 			int randNote = Random.Range(1,5);

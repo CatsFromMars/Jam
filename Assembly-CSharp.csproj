@@ -136,6 +136,8 @@
      <Compile Include="Assets\_scripts\_core\MonoSingleton.cs" />
      <Compile Include="Assets\_scripts\_core\Settings.cs" />
      <Compile Include="Assets\_scripts\_core\Singleton.cs" />
+     <Compile Include="Assets\_scripts\_gameplay\Animals.cs" />
+     <Compile Include="Assets\_scripts\_gameplay\AnimationEvents.cs" />
      <Compile Include="Assets\_scripts\_gameplay\BeatDetector.cs" />
      <Compile Include="Assets\_scripts\_gameplay\GameController.cs" />
      <Compile Include="Assets\_scripts\_gameplay\Note.cs" />
