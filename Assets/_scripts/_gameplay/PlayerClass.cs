@@ -74,14 +74,21 @@ public class Player{
 			if (combo > bestCombo) {
 				bestCombo = combo;
 			}
+			int damage = combo;
+			if (combo >= 30) {
+				damage *= 3;
+			}
+			else if (combo >= 15) {
+				damage *= 2;
+			}
 			//NO MERCY
 			if (playerNum == 1) {
-				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= combo;
+				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= damage;
 				fightManager.catAttackDog();
 				GameObject.Find ("GameController").GetComponent<GameController>().StartCoroutine("fightReset");
 			}
 			else {
-				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= combo;
+				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= damage;
 				fightManager.dogAttackCat();
 				fightManager.normal();
 			}
