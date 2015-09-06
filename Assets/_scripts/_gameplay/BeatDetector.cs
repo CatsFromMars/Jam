@@ -13,6 +13,13 @@ public class BeatDetector : MonoBehaviour {
 	}
 	void OnTriggerExit2D(Collider2D other) {
 		if(other.gameObject.tag == "ONote" || other.gameObject.tag == "PNote") currentNote = null;
+		int playerNum = -1;
+		string player = this.transform.parent.name;
+		if (player.Equals ("Player 1"))
+			playerNum = 0;
+		else
+			playerNum = 1;
+		GameObject.Find ("GameController").GetComponent<GameController> ().players[playerNum].miss ();
 	}
 
 //	public void hitBeat(string tag) {
