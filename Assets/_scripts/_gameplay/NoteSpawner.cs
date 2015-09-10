@@ -8,9 +8,16 @@ public class NoteSpawner : MonoBehaviour {
 	GameController controller;
 	AudioSource mainMusic;
 	private float rate;
-	public Transform otherSpawner;
+	public Transform[] spawners;
 
 	void Awake() {
+		controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+		mainMusic = GameObject.FindGameObjectWithTag("MainMusic").GetComponent<AudioSource>();
+		StartCoroutine (spawnNotes());
+		rate = (controller.bpm/controller.songLength)/1.5f;
+	}
+
+	public void forceAwake() {
 		controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 		mainMusic = GameObject.FindGameObjectWithTag("MainMusic").GetComponent<AudioSource>();
 		StartCoroutine (spawnNotes());
@@ -36,7 +43,8 @@ public class NoteSpawner : MonoBehaviour {
 	}
 
 	void instantiateNotes(Transform note) {
-		Instantiate (note, transform.position, Quaternion.identity);
-		Instantiate (note, otherSpawner.transform.position, Quaternion.identity);
+		for (int i=0; i<spawners.Length; i++) {
+			if(controller.players[i].activeInHierarchy) Instantiate (note, spawners[i].transform.position, Quaternion.identity);
+		}
 	}
 }

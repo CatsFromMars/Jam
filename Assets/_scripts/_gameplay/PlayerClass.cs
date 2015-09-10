@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using BladeCast;
+using UnityEngine.UI;
 
-public class Player{
+public class PlayerClass: MonoBehaviour{
+	public Transform b; //Beat 
+	public TextMesh comborep;
+	public TextMesh scorep;
+	public TextMesh healthrep;
+	public Slider hbar;
+
 	public int playerNum;
 	public BeatDetector detector;
 	public int score;
@@ -10,20 +17,36 @@ public class Player{
 	public int combo;
 	public int bestCombo;
 	public Transform avatar;
-	public int health;
-	public Animals fightManager;
+	public float health;
 
-	public Player(BeatDetector d, Transform a, int num)
+	Animals fightManager;
+	GameController master;
+
+	void Start()
 	{
-		detector = d;
-		score = 0;
 		combo = 0;
 		bestCombo = 0;
 		missed = 0;
-		health = 100;
-		avatar = a;
-		playerNum = num;
+		hbar.maxValue = 100;
 		fightManager = GameObject.Find ("Fight").GetComponent<Animals> ();
+		master = GameObject.Find ("GameController").GetComponent<GameController> ();
+	}
+
+	void Update() {
+		comborep.text = "Combo: " + combo;
+		scorep.text = "Player " + playerNum + " Score: " + score;
+		healthrep.text = "Player " + playerNum + " Health: " + health;
+		hbar.value = health;
+	}
+
+	public void loadPlayer(int pNum, int points, float hp) {
+		playerNum = pNum;
+		score = points;
+		health = hp;
+		combo = 0;
+		bestCombo = 0;
+		missed = 0;
+		hbar.maxValue = hp;
 	}
 	
 	public void hit(string tag) {
@@ -82,16 +105,12 @@ public class Player{
 				damage *= 2;
 			}
 			//NO MERCY
-			if (playerNum == 1) {
-				GameObject.Find ("GameController").GetComponent<GameController>().players[1].health -= damage;
-				fightManager.catAttackDog();
-				GameObject.Find ("GameController").GetComponent<GameController>().StartCoroutine("fightReset");
+			for (int i = 0; i < master.players.Length; i++) {
+				if (playerNum != i+1) {
+					master.players[i].GetComponent<PlayerClass>().health--;
+				}
 			}
-			else {
-				GameObject.Find ("GameController").GetComponent<GameController>().players[0].health -= damage;
-				fightManager.dogAttackCat();
-				fightManager.normal();
-			}
+			StartCoroutine("fightReset");
 			combo = 0;
 		}
 	}
@@ -102,5 +121,10 @@ public class Player{
 		}
 		health += combo;
 		combo = 0;
+	}
+
+	IEnumerator fightReset() {
+		yield return new WaitForSeconds (0.5f);
+		fightManager.normal();
 	}
 }

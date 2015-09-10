@@ -10,12 +10,9 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	string curLevel;
 
 	//for final results
-	public int score1;
-	public int score2;
-	public int maxCombo1;
-	public int maxCombo2;
-	public int missedNotes1;
-	public int missedNotes2;
+	public int[] score;
+	public int[] maxCombo;
+	public int[] missedNotes;
 	public int victor;
 	public int victoryType;
 
@@ -54,6 +51,10 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 					BCMessenger.Instance.SendToListeners ("set_scene", "scene", "loadMenu", 1);
 				}
 				break;
+			case "mainGame": 
+				GameObject.Find("GameController").GetComponent<GameController>().dropIn(controller);
+				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, -1);
+				break;
 			default:
 				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, -1);
 				break;
@@ -62,11 +63,14 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	void menuOptions(ControllerMessage msg) {
 		if (Application.loadedLevelName == "loadingScene" || Application.loadedLevelName == "resultsScreen") {
 			switch (msg.Payload.GetField("button").ToString().Replace("\"", "")) {
-				case "singleplayer":
+				case "twoPlayer":
 					numPlayers = 2;
 					break;
-				case "multiplayer":
-					numPlayers = 2;
+				case "threePlayer":
+					numPlayers = 3;
+					break;
+				case "fourPlayer":
+					numPlayers = 4;
 					break;
 			}
 			Application.LoadLevel("mainGame");
@@ -91,7 +95,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 		if (Application.loadedLevelName == "mainGame") {
 			int player = 0;
 			int.TryParse (msg.Payload.GetField ("index").ToString (), out player);
-			GameObject.Find ("GameController").GetComponent<GameController>().players[--player].attack();
+			GameObject.Find ("GameController").GetComponent<GameController>().players[--player].GetComponent<PlayerClass>().attack();
 		}
 	}
 

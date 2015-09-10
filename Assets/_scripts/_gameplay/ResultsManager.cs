@@ -5,24 +5,21 @@ public class ResultsManager : MonoBehaviour {
 
 	ControllerManager master;
 
-	public TextMesh score1;
-	public TextMesh score2;
-	public TextMesh combo1;
-	public TextMesh combo2;
-	public TextMesh missed1;
-	public TextMesh missed2;
+	public TextMesh[] score;
+	public TextMesh[] combo;
+	public TextMesh[] missed;
 	public TextMesh victoryText;
 
 	// Use this for initialization
 	void Start () {
 		master = GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ();
 		master.loadLevel (Application.loadedLevelName);
-		score1.text = "Player 1 Score: " + master.score1.ToString();
-		combo1.text = "Largest Combo: " + master.maxCombo1.ToString();
-		missed1.text = "Missed Notes: " + master.missedNotes1.ToString();
-		score2.text = "Player 2 Score: " + master.score2.ToString();
-		combo2.text = "Largest Combo: " + master.maxCombo2.ToString();
-		missed2.text = " Missed Notes: " + master.missedNotes2.ToString();
+		int numPlayers = master.getNumPlayers ();
+		for (int i = 0; i < numPlayers; i++) {
+			score[i].text = "Player " + (i+1) + " Score: " + master.score[i];
+			combo[i].text = "Largest Combo: " + master.maxCombo[i];
+			missed[i].text = "Missed Notes: " + master.missedNotes[i];
+		}
 
 		string victoryType;
 		if (master.victoryType == 0) {
