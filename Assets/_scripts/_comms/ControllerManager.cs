@@ -10,6 +10,7 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	string curLevel;
 
 	//for final results
+	//posibile todo: make player results struct
 	public int[] score;
 	public int[] maxCombo;
 	public int[] missedNotes;
@@ -19,6 +20,9 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 	// Use this for initialization
 	void Start () {
 		loadLevel (Application.loadedLevelName);
+		score = new int[4];
+		maxCombo = new int[4];
+		missedNotes = new int[4];
 	}
 	
 	// Update is called once per frame
@@ -52,11 +56,13 @@ public class ControllerManager : MonoPersistentSingleton<ControllerManager>{
 				}
 				break;
 			case "mainGame": 
-				GameObject.Find("GameController").GetComponent<GameController>().dropIn(controller);
-				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, -1);
+				if (GameObject.Find("GameController").GetComponent<GameController>().players[controller - 1].activeInHierarchy) {
+					GameObject.Find("GameController").GetComponent<GameController>().dropIn(controller);
+				}
+				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, controller);
 				break;
 			default:
-				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, -1);
+				BCMessenger.Instance.SendToListeners ("set_scene", "scene", Application.loadedLevelName, controller);
 				break;
 		}
 	}

@@ -50,33 +50,31 @@ public class PlayerClass: MonoBehaviour{
 	}
 	
 	public void hit(string tag) {
-		if (detector.currentNote != null && detector.currentNote.tag == tag) {
-			Debug.Log ("You did it!");
-			GameObject.Find("ControllerManager").GetComponent<ControllerManager>().vibrate(100, playerNum);
-			detector.currentNote.GetComponent<Note> ().destroySelf ();
-			detector.currentNote = null;
-			combo++;
-			//calculate combo bonus
-			if (combo >= 20) {
-				score += 10;
-			}
-			else if (combo >= 10) {
-				score += 5;
-			}
-			else if (combo >= 5) {
-				score += 2;
-			}
-			else {
-				score++;
-			}
-		} else {
-			if (combo > bestCombo) {
-				bestCombo = combo;
-			}
-			combo = 0;
-			if (score > 0) {
+		if (detector.currentNote != null) {
+			if (detector.currentNote.tag == tag) {
+				Debug.Log ("You did it!");
+				GameObject.Find ("ControllerManager").GetComponent<ControllerManager> ().vibrate (100, playerNum);
+				detector.currentNote.GetComponent<Note> ().destroySelf ();
+				detector.currentNote = null;
+				combo++;
+				//calculate combo bonus
+				if (combo >= 20) {
+					score += 10;
+				} else if (combo >= 10) {
+					score += 5;
+				} else if (combo >= 5) {
+					score += 2;
+				} else {
+					score++;
+				}
+			} else if (detector.currentNote.tag != tag) {
+				//hit wrong note so subtract from score
 				score--;
+				miss ();
 			}
+		}
+		else {
+			miss ();
 			Debug.Log ("BOOOOO");
 		}
 	}
@@ -107,7 +105,7 @@ public class PlayerClass: MonoBehaviour{
 			//NO MERCY
 			for (int i = 0; i < master.players.Length; i++) {
 				if (playerNum != i+1) {
-					master.players[i].GetComponent<PlayerClass>().health--;
+					master.players[i].GetComponent<PlayerClass>().health -= damage;
 				}
 			}
 			StartCoroutine("fightReset");
@@ -121,10 +119,5 @@ public class PlayerClass: MonoBehaviour{
 		}
 		health += combo;
 		combo = 0;
-	}
-
-	IEnumerator fightReset() {
-		yield return new WaitForSeconds (0.5f);
-		fightManager.normal();
 	}
 }
